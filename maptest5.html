@@ -188,6 +188,10 @@
 
         // === ALL MAP DATA: FINAL PT and 24 RT PLACEMENT ===
 
+        // === ALL MAP DATA: FINAL PT, 24 RT, and 12 CITY PLACEMENT ===
+
+// === ALL MAP DATA: FINAL PT, 24 RT, and 12 CITY PLACEMENT ===
+
         const components = [
             // --- PTs A-L (Original State 1 Active Group) ---
             { id: 'PT-A', type: 'PT', x: 9.4, y: 11.1, active: false, power: 0, reqPower: 3, reqChannel: 1 }, 
@@ -204,12 +208,12 @@
             { id: 'PT-L', type: 'PT', x: 54.2, y: 32.8, active: false, power: 0, reqPower: 3, reqChannel: 1 },
 
             // --- PTs M-R (Original State 2 Active Group) ---
-            { id: 'PT-M', type: 'PT', x: 37.8, y: 19.5, active: false, power: 0, reqPower: 4, reqChannel: 2 },
-            { id: 'PT-N', type: 'PT', x: 7.5, y: 19.8, active: false, power: 0, reqPower: 4, reqChannel: 2 },
-            { id: 'PT-O', type: 'PT', x: 25.0, y: 23.3, active: false, power: 0, reqPower: 4, reqChannel: 3 },
-            { id: 'PT-P', type: 'PT', x: 57.8, y: 14.4, active: false, power: 0, reqPower: 4, reqChannel: 2 },
-            { id: 'PT-Q', type: 'PT', x: 55.7, y: 27.5, active: false, power: 0, reqPower: 4, reqChannel: 2 },
-            { id: 'PT-R', type: 'PT', x: 32.0, y: 2.2,  active: false, power: 0, reqPower: 3, reqChannel: 1 }, 
+            { id: 'PT-M', type: 'PT', x: 37.8, y: 19.5, active: false, power: 0, reqPower: 3, reqChannel: 2 }, // P3
+            { id: 'PT-N', type: 'PT', x: 7.5, y: 19.8, active: false, power: 0, reqPower: 3, reqChannel: 2 },  // P3
+            { id: 'PT-O', type: 'PT', x: 25.0, y: 23.3, active: false, power: 0, reqPower: 3, reqChannel: 3 },  // P3
+            { id: 'PT-P', type: 'PT', x: 57.8, y: 14.4, active: false, power: 0, reqPower: 4, reqChannel: 2 },  // P4
+            { id: 'PT-Q', type: 'PT', x: 55.7, y: 27.5, active: false, power: 0, reqPower: 3, reqChannel: 2 },  // P3
+            { id: 'PT-R', type: 'PT', x: 32.0, y: 2.2,  active: false, power: 0, reqPower: 3, reqChannel: 1 },  // P3 (Matching your last input)
             
             // --- REPEATER TOWERS (RTs) - (Total 24 RTs) ---
             { id: 'RT1', type: 'RT', x: 5.6, y: 5.7 },
@@ -237,19 +241,23 @@
             { id: 'RT23', type: 'RT', x: 32.8, y: 2.5 }, 
             { id: 'RT24', type: 'RT', x: 60.0, y: 30.0 },
 
-            // --- CITIES (C) - N=12 ---
-            { id: 'C1', type: 'C', x: 1.0, y: 14.0 },
-            { id: 'C2', type: 'C', x: 1.0, y: 22.0 },
-            { id: 'C3', type: 'C', x: 18.0, y: 18.0 },
-            { id: 'C4', type: 'C', x: 18.0, y: 26.0 },
-            { id: 'C5', type: 'C', x: 28.0, y: 14.0 },
+            // --- CITIES (C) - N=16 ---
+            { id: 'C1', type: 'C', x: 14.9, y: 15.3 },
+            { id: 'C2', type: 'C', x: 1.4, y: 34.9 },
+            { id: 'C3', type: 'C', x: 32.9, y: 23.4 },
+            { id: 'C4', type: 'C', x: 20.4, y: 24.9 },
+            { id: 'C5', type: 'C', x: 27.0, y: 8.8 },
             { id: 'C6', type: 'C', x: 28.0, y: 22.0 },
-            { id: 'C7', type: 'C', x: 46.0, y: 14.0 },
-            { id: 'C8', type: 'C', x: 46.0, y: 22.0 },
-            { id: 'C9', type: 'C', x: 62.0, y: 18.0 },
+            { id: 'C7', type: 'C', x: 49.6, y: 9.3 },
+            { id: 'C8', type: 'C', x: 49.5, y: 27.9 },
+            { id: 'C9', type: 'C', x: 51.4, y: 18.2 },
             { id: 'C10', type: 'C', x: 32.0, y: 6.0 },
-            { id: 'C11', type: 'C', x: 32.0, y: 34.0 },
-            { id: 'C12', type: 'C', x: 62.0, y: 26.0 }
+            { id: 'C11', type: 'C', x: 38.8, y: 25.8 },
+            { id: 'C12', type: 'C', x: 62.8, y: 1.6 },
+            { id: 'C13', type: 'C', x: 15.0, y: 22.0 }, 
+            { id: 'C14', type: 'C', x: 13.0, y: 26.0 }, 
+            { id: 'C15', type: 'C', x: 11.0, y: 16.0 }, 
+            { id: 'C16', type: 'C', x: 11.0, y: 20.0 }
         ];
 
 
@@ -712,6 +720,31 @@
         });
         
         // --- UI/Logic Functions (Validation & Status) ---
+
+        // Updates the PT object when a dropdown is changed
+        function updatePTSetting(selectElement, type) {
+            
+            const ptId = selectElement.id.split('-')[2];
+            const newValue = parseInt(selectElement.value);
+
+            const pt = components.find(c => c.id === ptId);
+            if (pt) {
+                // OVERRIDE: If a manual control is used, switch to custom state.
+                if (currentSolveState !== 'custom') {
+                    solveStateSelect.value = 'custom';
+                    currentSolveState = 'custom';
+                }
+
+                if (type === 'power') {
+                    pt.power = newValue;
+                    pt.active = newValue > 0;
+                } else if (type === 'reqChannel') {
+                    // NOTE: Changing reqChannel only changes the puzzle requirement, not the map's current channel hit.
+                    pt.reqChannel = newValue;
+                }
+            }
+            updateControlPanel();
+        }
 
         // New: Outputs the current coordinates and power of all components for easy copying.
         function updateCoordinateOutput() {
