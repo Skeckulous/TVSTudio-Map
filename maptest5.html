@@ -637,7 +637,31 @@
             const angleStep = 0.5; 
             const fullCircle = 2 * Math.PI;
 
-            function performRaycasting(component, isPT) {
+            // --- 1. Draw all DOTTED CONCENTRIC RINGS (P1-P4) ---
+            components.filter(c => c.type === 'PT').forEach(pt => {
+                const center_x = pt.x * UNIT_PIXELS;
+                const center_y = pt.y * UNIT_PIXELS;
+
+                ctx.lineWidth = 1;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)'; // Faint dotted white line
+
+                // Loop through P1 (index 1) to P4 (index 4)
+                for (let p = 1; p <= 4; p++) {
+                    const radius = powerRadii[p];
+                    if (radius <= 0) continue;
+
+                    const pixel_radius = radius * UNIT_PIXELS;
+                    
+                    ctx.setLineDash([3, 3]); // Dotted pattern
+                    ctx.beginPath();
+                    ctx.arc(center_x, center_y, pixel_radius, 0, fullCircle);
+                    ctx.stroke();
+                }
+                ctx.setLineDash([]); // Reset dash for the rest of the canvas
+            });
+            // --- END CONCENTRIC RING DRAW ---
+
+        function performRaycasting(component, isPT) {
                 const radius = isPT ? powerRadii[component.power] : RT_FIXED_RADIUS;
                 if (radius <= 0) return;
                 const center_x = component.x * UNIT_PIXELS;
@@ -651,20 +675,21 @@
                 // Default colors (Blue for PT, Yellow for RT)
                 let fill_color = isPT ? 'rgba(0, 191, 255, 0.08)' : 'rgba(255, 255, 0, 0.06)';
                 let border_color = isPT ? 'rgba(0, 191, 255, 0.6)' : 'rgba(255, 255, 0, 0.5)';
-                let blocked_color = isPT ? 'rgba(0, 100, 255, 0.1)' : 'rgba(255, 165, 0, 0.1)';
+                const blocked_color = isPT ? 'rgba(0, 100, 255, 0.1)' : 'rgba(255, 165, 0, 0.1)';
 
                 // --- HIGHLIGHT OVERRIDE ---
-                // NEW: Check for highlight property
+                if (isPT && component.highlight) {
+                    // Override default colors with pink/magenta
+                    fill_color = 'rgba(255, 105, 180, 0.08)'; 
+                    border_color = 'rgba(255, 105, 180, 0.6)'; 
+                }
+
+                // Apply dashed line style if PT is highlighted (but only for the solid border draw)
                 if (isPT && component.highlight) {
                     ctx.setLineDash([5, 3]); // Dashed line pattern
-                    // Override default colors with pink
-                    fill_color = 'rgba(255, 105, 180, 0.08)'; // Pink fill
-                    border_color = 'rgba(255, 105, 180, 0.6)'; // Pink border
-                    blocked_color = 'rgba(255, 105, 180, 0.1)'; // Faded pink
                 } else {
                     ctx.setLineDash([]); // Solid line
                 }
-                // --- END OF FIX ---
 
 
                 for (let angle = 0; angle <= 360; angle += angleStep) {
@@ -682,7 +707,7 @@
                             startAngle = prevRadians; 
                         }
                         
-                        // Draw the visible border segment
+                        // Draw the visible border segment (SOLID)
                         ctx.strokeStyle = border_color;
                         ctx.lineWidth = 1.5;
                         
@@ -725,21 +750,21 @@
                     drawWedge(center_x, center_y, pixel_radius, fill_color, startAngle, fullCircle);
                 }
                 
-                // Ensure dashed lines are reset
+                // Ensure dashed lines are reset after the component is drawn
                 ctx.setLineDash([]);
             }
             
-            // 1. Draw PT ranges
+            // 2. Execute raycasting draw
             components.filter(c => c.type === 'PT' && c.active && c.power > 0).forEach(pt => {
                 performRaycasting(pt, true);
             });
 
-            // 2. Draw ACTIVE RT ranges
+            // 3. Draw ACTIVE RT ranges
             components.filter(c => c.type === 'RT' && rtStates[c.id]).forEach(rt => {
                 performRaycasting(rt, false);
             });
             
-            // 3. Draw components points and labels
+            // 4. Draw components points and labels (Unchanged)
             components.forEach(c => {
                 const center_x = c.x * UNIT_PIXELS;
                 const center_y = c.y * UNIT_PIXELS;
