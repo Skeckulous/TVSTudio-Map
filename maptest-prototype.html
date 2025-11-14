@@ -308,15 +308,15 @@
 
             <div id="console-wrapper">
                 <div class="console-box" id="console-1">
-                    <div class="console-header">SECTOR WEST (A-F)</div>
-                    <div class="tower-selectors">
-                        <button class="selector-btn active" data-pt="PT-A">A</button>
-                        <button class="selector-btn" data-pt="PT-B">B</button>
-                        <button class="selector-btn" data-pt="PT-C">C</button>
-                        <button class="selector-btn" data-pt="PT-D">D</button>
-                        <button class="selector-btn" data-pt="PT-E">E</button>
-                        <button class="selector-btn" data-pt="PT-F">F</button>
-                    </div>
+                            <div class="console-header">SECTOR K WEST (1-6)</div>
+                            <div class="tower-selectors">
+                                <button class="selector-btn active" data-pt="PT-1">1</button>
+                                <button class="selector-btn" data-pt="PT-2">2</button>
+                                <button class="selector-btn" data-pt="PT-3">3</button>
+                                <button class="selector-btn" data-pt="PT-4">4</button>
+                                <button class="selector-btn" data-pt="PT-5">5</button>
+                                <button class="selector-btn" data-pt="PT-6">6</button>
+                            </div>
                     <div class="console-controls">
                         <div class="console-btn-group">
                             <div class="game-btn square" id="c1-toggle">OFF</div>
@@ -334,15 +334,15 @@
                 </div>
 
                 <div class="console-box" id="console-2">
-                    <div class="console-header">SECTOR EAST (G-L)</div>
-                    <div class="tower-selectors">
-                        <button class="selector-btn active" data-pt="PT-G">G</button>
-                        <button class="selector-btn" data-pt="PT-H">H</button>
-                        <button class="selector-btn" data-pt="PT-I">I</button>
-                        <button class="selector-btn" data-pt="PT-J">J</button>
-                        <button class="selector-btn" data-pt="PT-K">K</button>
-                        <button class="selector-btn" data-pt="PT-L">L</button>
-                    </div>
+                            <div class="console-header">SECTOR W EAST (7-12)</div>
+                            <div class="tower-selectors">
+                                <button class="selector-btn active" data-pt="PT-7">7</button>
+                                <button class="selector-btn" data-pt="PT-8">8</button>
+                                <button class="selector-btn" data-pt="PT-9">9</button>
+                                <button class="selector-btn" data-pt="PT-10">10</button>
+                                <button class="selector-btn" data-pt="PT-11">11</button>
+                                <button class="selector-btn" data-pt="PT-12">12</button>
+                            </div>
                     <div class="console-controls">
                         <div class="console-btn-group">
                             <div class="game-btn square" id="c2-toggle">OFF</div>
@@ -428,39 +428,39 @@
         // === ALL MAP DATA: FINAL PT, 24 RT, and 16 CITY PLACEMENT ===
 
         const components = [
-            // --- PTs A-L (12 Total) ---
-            { id: 'PT-A', type: 'PT', x: 11.0, y: 10.3, active: false, power: 0, reqPower: 4, reqChannel: 4, lastPower: 4, highlight: false, reqCities: 3 }, 
-            { id: 'PT-B', type: 'PT', x: 10.0, y: 28.2, active: false, power: 0, reqPower: 4, reqChannel: 1, lastPower: 1, highlight: false, reqCities: 1 },
-            { id: 'PT-C', type: 'PT', x: 19.9, y: 17.8, active: false, power: 0, reqPower: 4, reqChannel: 2, lastPower: 3, highlight: false, reqCities: 4 }, 
-            { id: 'PT-D', type: 'PT', x: 24.1, y: 5.7,  active: false, power: 0, reqPower: 4, reqChannel: 1, lastPower: 2, highlight: false, reqCities: 1 },
-            { id: 'PT-E', type: 'PT', x: 24.0, y: 29.9, active: false, power: 0, reqPower: 4, reqChannel: 1, lastPower: 4, highlight: false, reqCities: 1 },
-            { id: 'PT-F', type: 'PT', x: 31.8, y: 23.5, active: false, power: 0, reqPower: 4, reqChannel: 3, lastPower: 3, highlight: false, reqCities: 1 }, 
+            // --- PTs 1-12 (Renamed from A-L) ---
+            { id: 'PT-1', type: 'PT', x: 11.0, y: 10.3, active: false, power: 0, reqPower: 4, reqChannel: 4, lastPower: 4, highlight: false, reqCities: 3 }, 
+            { id: 'PT-2', type: 'PT', x: 10.0, y: 28.2, active: false, power: 0, reqPower: 4, reqChannel: 1, lastPower: 1, highlight: false, reqCities: 1 },
+            { id: 'PT-3', type: 'PT', x: 19.9, y: 17.8, active: false, power: 0, reqPower: 4, reqChannel: 2, lastPower: 3, highlight: false, reqCities: 4 }, 
+            { id: 'PT-4', type: 'PT', x: 24.1, y: 5.7,  active: false, power: 0, reqPower: 4, reqChannel: 1, lastPower: 2, highlight: false, reqCities: 1 },
+            { id: 'PT-5', type: 'PT', x: 24.0, y: 29.9, active: false, power: 0, reqPower: 4, reqChannel: 1, lastPower: 4, highlight: false, reqCities: 1 },
+            { id: 'PT-6', type: 'PT', x: 31.8, y: 23.5, active: false, power: 0, reqPower: 4, reqChannel: 3, lastPower: 3, highlight: false, reqCities: 1 }, 
             
-            { id: 'PT-G', type: 'PT', x: 36.7, y: 12.8, active: false, power: 0, reqPower: 4, reqChannel: 2, lastPower: 1, highlight: false, reqCities: 5 },
-            { id: 'PT-H', type: 'PT', x: 39.6, y: 28.6, active: false, power: 0, reqPower: 4, reqChannel: 3, lastPower: 2, highlight: false, reqCities: 5 },
-            { id: 'PT-I', type: 'PT', x: 55.5, y: 29.1, active: false, power: 0, reqPower: 4, reqChannel: 1, lastPower: 2, highlight: false, reqCities: 1 },
-            { id: 'PT-J', type: 'PT', x: 47.0, y: 17.5, active: false, power: 0, reqPower: 4, reqChannel: 2, lastPower: 4, highlight: false, reqCities: 1 },
-            { id: 'PT-K', type: 'PT', x: 52.6, y: 9.0,  active: false, power: 0, reqPower: 4, reqChannel: 3, lastPower: 4, highlight: false, reqCities: 2 },
-            { id: 'PT-L', type: 'PT', x: 60.1, y: 17.4, active: false, power: 0, reqPower: 4, reqChannel: 1, lastPower: 3, highlight: false, reqCities: 1 },
+            { id: 'PT-7', type: 'PT', x: 36.7, y: 12.8, active: false, power: 0, reqPower: 4, reqChannel: 2, lastPower: 4, highlight: false, reqCities: 5 },
+            { id: 'PT-8', type: 'PT', x: 39.6, y: 28.6, active: false, power: 0, reqPower: 4, reqChannel: 3, lastPower: 4, highlight: false, reqCities: 5 },
+            { id: 'PT-9', type: 'PT', x: 56.3, y: 29.0, active: false, power: 0, reqPower: 4, reqChannel: 1, lastPower: 2, highlight: false, reqCities: 1 },
+            { id: 'PT-10', type: 'PT', x: 47.0, y: 17.5, active: false, power: 0, reqPower: 4, reqChannel: 2, lastPower: 4, highlight: false, reqCities: 1 },
+            { id: 'PT-11', type: 'PT', x: 52.6, y: 9.0,  active: false, power: 0, reqPower: 4, reqChannel: 3, lastPower: 4, highlight: false, reqCities: 2 },
+            { id: 'PT-12', type: 'PT', x: 60.0, y: 18.3, active: false, power: 0, reqPower: 4, reqChannel: 1, lastPower: 3, highlight: false, reqCities: 1 },
 
-            // --- REPEATER TOWERS (RTs) - (Total 15 RTs) ---
-            { id: 'RT1', type: 'RT', x: 6.8, y: 17.3 },
-            { id: 'RT2', type: 'RT', x: 8.6, y: 29.1 },
-            { id: 'RT3', type: 'RT', x: 16.0, y: 4.1 },
-            { id: 'RT4', type: 'RT', x: 5.9, y: 3.8 },
-            { id: 'RT5', type: 'RT', x: 22.0, y: 12.9 },
-            { id: 'RT6', type: 'RT', x: 24.4, y: 21.1 },
-            { id: 'RT7', type: 'RT', x: 31.8, y: 6.5 },
-            { id: 'RT8', type: 'RT', x: 37.1, y: 21.1 },
-            { id: 'RT9', type: 'RT', x: 32.3, y: 29.9 },
-            { id: 'RT10', type: 'RT', x: 47.0, y: 25.5 },
-            { id: 'RT11', type: 'RT', x: 58.3, y: 31.2 },
-            { id: 'RT12', type: 'RT', x: 59.1, y: 13.6 },
-            { id: 'RT13', type: 'RT', x: 47.0, y: 3.4 },
-            { id: 'RT14', type: 'RT', x: 3.0, y: 10.9 },
-            { id: 'RT15', type: 'RT', x: 58.1, y: 3.5 },
+            // --- REPEATER TOWERS (RTs) - (Total 15 RTs, Renamed A-O) ---
+            { id: 'RT-A', type: 'RT', x: 6.8, y: 17.3 },
+            { id: 'RT-B', type: 'RT', x: 8.6, y: 29.1 },
+            { id: 'RT-C', type: 'RT', x: 16.0, y: 4.1 },
+            { id: 'RT-D', type: 'RT', x: 5.9, y: 3.8 },
+            { id: 'RT-E', type: 'RT', x: 22.0, y: 12.9 },
+            { id: 'RT-F', type: 'RT', x: 24.4, y: 21.1 },
+            { id: 'RT-G', type: 'RT', x: 31.8, y: 6.5 },
+            { id: 'RT-H', type: 'RT', x: 37.1, y: 21.1 },
+            { id: 'RT-I', type: 'RT', x: 32.3, y: 29.9 },
+            { id: 'RT-J', type: 'RT', x: 47.0, y: 25.5 },
+            { id: 'RT-K', type: 'RT', x: 58.3, y: 31.2 },
+            { id: 'RT-L', type: 'RT', x: 59.1, y: 13.6 },
+            { id: 'RT-M', type: 'RT', x: 47.0, y: 3.4 },
+            { id: 'RT-N', type: 'RT', x: 3.0, y: 10.9 },
+            { id: 'RT-O', type: 'RT', x: 58.1, y: 3.5 },
 
-            // --- CITIES (C) - (Total 18 Cities) ---
+            // --- CITIES (C) - (Total 18 Cities, Unchanged) ---
             { id: 'C1', type: 'C', x: 5.3, y: 20.2 },
             { id: 'C2', type: 'C', x: 6.8, y: 32.0 },
             { id: 'C3', type: 'C', x: 16.9, y: 22.2 },
@@ -507,8 +507,8 @@
         let dragOffsetY = 0;
 
         // --- Console State ---
-        let console1SelectedPT = 'PT-A'; // Default for Console 1
-        let console2SelectedPT = 'PT-G'; // Default for Console 2
+        let console1SelectedPT = 'PT-1'; // Default for Console 1
+        let console2SelectedPT = 'PT-7'; // Default for Console 2
 
         // --- CORE HANDLER FUNCTIONS (MUST BE DEFINED EARLY) ---
 
@@ -1357,11 +1357,12 @@ const controlHTML = `
             updateConsoles(); // NEW: Updates the Game Consoles 
         }
         
-        function applySolveStatePresets(state) {
+function applySolveStatePresets(state) {
             currentSolveState = state;
 
-            const STATE1_OFF_IDS = ['PT-D', 'PT-E', 'PT-F', 'PT-J', 'PT-L']; 
-            const STATE2_IDS = ['PT-F', 'PT-H', 'PT-I', 'PT-J', 'PT-K', 'PT-L']; // State 2 is G-L
+            // NEW: Updated to new PT-1, PT-2, etc. IDs
+            const STATE1_OFF_IDS = ['PT-4', 'PT-5', 'PT-6', 'PT-10', 'PT-12']; // D, E, F, J, L
+            const STATE2_IDS = ['PT-7', 'PT-8', 'PT-9', 'PT-10', 'PT-11', 'PT-12']; // State 2 is 7-12
 
             // 1. Reset ALL PTs 
             components.filter(c => c.type === 'PT').forEach(pt => {
@@ -1374,41 +1375,41 @@ const controlHTML = `
                 // NEW: FIRST SETTING (STARTUP) - 10 ON, 2 OFF
                 components.filter(c => c.type === 'PT').forEach(pt => {
                     // Set Active Status
-                    if (['PT-G', 'PT-H'].includes(pt.id)) {
+                    if (['PT-7', 'PT-8'].includes(pt.id)) { // G, H
                         pt.active = false;
                         pt.power = 0;
                     } else {
                         pt.active = true;
                         // Set specific power level from user list
-                        if (pt.id === 'PT-A') pt.power = 1;
-                        if (pt.id === 'PT-B') pt.power = 3;
-                        if (pt.id === 'PT-C') pt.power = 2;
-                        if (pt.id === 'PT-D') pt.power = 4;
-                        if (pt.id === 'PT-E') pt.power = 4;
-                        if (pt.id === 'PT-F') pt.power = 4;
-                        if (pt.id === 'PT-I') pt.power = 4;
-                        if (pt.id === 'PT-J') pt.power = 4;
-                        if (pt.id === 'PT-K') pt.power = 2;
-                        if (pt.id === 'PT-L') pt.power = 2;
+                        if (pt.id === 'PT-1') pt.power = 1; // A
+                        if (pt.id === 'PT-2') pt.power = 3; // B
+                        if (pt.id === 'PT-3') pt.power = 3; // C
+                        if (pt.id === 'PT-4') pt.power = 4; // D
+                        if (pt.id === 'PT-5') pt.power = 4; // E
+                        if (pt.id === 'PT-6') pt.power = 4; // F
+                        if (pt.id === 'PT-9') pt.power = 4; // I
+                        if (pt.id === 'PT-10') pt.power = 4; // J
+                        if (pt.id === 'PT-11') pt.power = 2; // K
+                        if (pt.id === 'PT-12') pt.power = 2; // L
                     }
                 });
             } else if (state === 'state1') {
                 // SOLVE STATE 1: PT-D, E, F, J, L are OFF (7 PTs ON)
                 components.filter(c => c.type === 'PT').forEach(pt => {
-                    const isActive = ['PT-A', 'PT-B', 'PT-C', 'PT-G', 'PT-H', 'PT-I', 'PT-K'].includes(pt.id);
+                    const isActive = ['PT-1', 'PT-2', 'PT-3', 'PT-7', 'PT-8', 'PT-9', 'PT-11'].includes(pt.id);
 
                     if (isActive) {
                         pt.active = true;
                         // Synchronize required properties to the final solve state:
-                        if (pt.id === 'PT-A') { pt.reqPower = 4; pt.reqChannel = 4; pt.reqCities = 3; pt.power = 4; }
-                        if (pt.id === 'PT-B') { pt.reqPower = 4; pt.reqChannel = 1; pt.reqCities = 1; pt.power = 1; }
-                        if (pt.id === 'PT-C') { pt.reqPower = 4; pt.reqChannel = 2; pt.reqCities = 4; pt.power = 3; }
-                        if (pt.id === 'PT-G') { pt.reqPower = 4; pt.reqChannel = 2; pt.reqCities = 5; pt.power = 4; }
-                        if (pt.id === 'PT-H') { pt.reqPower = 4; pt.reqChannel = 3; pt.reqCities = 5; pt.power = 4; }
-                        if (pt.id === 'PT-I') { pt.reqPower = 4; pt.reqChannel = 1; pt.reqCities = 1; pt.power = 2; }
-                        if (pt.id === 'PT-K') { pt.reqPower = 4; pt.reqChannel = 3; pt.reqCities = 2; pt.power = 4; }
+                        if (pt.id === 'PT-1') { pt.reqPower = 4; pt.reqChannel = 4; pt.reqCities = 3; pt.power = 4; }
+                        if (pt.id === 'PT-2') { pt.reqPower = 4; pt.reqChannel = 1; pt.reqCities = 1; pt.power = 1; }
+                        if (pt.id === 'PT-3') { pt.reqPower = 4; pt.reqChannel = 2; pt.reqCities = 4; pt.power = 3; }
+                        if (pt.id === 'PT-7') { pt.reqPower = 4; pt.reqChannel = 2; pt.reqCities = 5; pt.power = 4; }
+                        if (pt.id === 'PT-8') { pt.reqPower = 4; pt.reqChannel = 3; pt.reqCities = 5; pt.power = 4; }
+                        if (pt.id === 'PT-9') { pt.reqPower = 4; pt.reqChannel = 1; pt.reqCities = 1; pt.power = 2; }
+                        if (pt.id === 'PT-11') { pt.reqPower = 4; pt.reqChannel = 3; pt.reqCities = 2; pt.power = 4; }
                     } else {
-                        // Inactive PTs: D, E, F, J, L
+                        // Inactive PTs: 4, 5, 6, 10, 12
                         pt.active = false;
                         pt.power = 0;
                     }
