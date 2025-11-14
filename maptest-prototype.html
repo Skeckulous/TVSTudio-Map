@@ -366,9 +366,11 @@
             <div class="control-group">
                 <label for="solveState">Select Solve State:</label>
                 <select id="solveState">
-                    <option value="state1">Solve State 1</option>
-                    <option value="state2">Solve State 2</option>
-                    <option value="custom">Custom (Manual)</option>
+                    <option value="first">Initial State</option>
+                    <option value="state1">Solve State 1 (D,E,G,J,L Off)</option>
+ <!-- took this out -->
+ <!-- <option value="state2">Solve State 2 (TBD)</option> -->
+                    <option value="custom">Custom (Manual Control)</option>
                 </select>
                 <button id="toggle-collapse-btn" style="margin-top: 15px; background-color: #6c757d;">Hide Dev Tools</button>
             </div>
@@ -1567,7 +1569,7 @@ const controlHTML = `
             createManualControls(); 
             
             // Start on State 1
-            applySolveStatePresets('state1'); 
+            applySolveStatePresets('first'); 
         }
 
         // --- RUN INITIALIZATION ---
